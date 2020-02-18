@@ -1,0 +1,60 @@
+<div class="container">
+    
+    <div>
+        <form class="form-horizontal">
+            <input type = "hidden" [(ngModel)] = "price.id" name = "id" /> 
+            
+            <div class="form-group">
+                <label class="control-label col-sm-6">Price shop</label>
+                <input type = "text" [(ngModel)] = "price.shopId" name = "name" class="form-control" /><br/>
+                <label class="control-label col-sm-6">Price product</label>
+                <input type = "text" [(ngModel)] = "price.productId" name = "name" class="form-control" /><br/>
+                <label class="control-label col-sm-6">Price value</label>
+                <input type = "text" [(ngModel)] = "price.value" name = "name" class="form-control" /><br/>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button (click) = "addPrice()" class = "btn btn-primary">Add price</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <div>
+        <table class = "table table-striped table-bordered">
+            <tr style = "background: lightblue;">
+                <th>ID</th>
+                <th>shop</th>
+                <th>product</th>
+                <th>value</th>
+                <th>dateOfValue</th>
+                <th>X</th>
+            </tr>
+            <tr *ngFor = "let price of prices">
+                <td>{{price.id}}</td>
+                <td>{{price.shopId}}</td>
+                <td>{{price.productId}}</td>
+                <td>{{price.value}}</td>
+                <td>{{price.dateOfValue| date:'MM/dd/yyyy'}}</td>
+                <td>
+                    <button (click) = "getPrice(price.id)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span>edit</button>      
+                    &nbsp;|&nbsp;
+                    <button (click) = "deletePrice(price.id)" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span>delete</button>
+                </td>
+                <!--<td><input type="checkbox" checked></td>-->
+            </tr>
+            
+            <tr *ngIf = "!prices">
+                <td colspan = "3">Loading... Please wait....</td>
+            </tr>
+            <tr *ngIf = "prices && prices.length == 0">
+                <td colspan = "4">No records found!</td>
+            </tr>
+        </table>
+    </div>    
+
+</div>
+

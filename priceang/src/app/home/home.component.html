@@ -1,0 +1,19 @@
+    <div *ngIf = "authenticationService.isUserLoggedIn()">
+        <nav class="navbar navbar-light bg-light">
+            <a class="nav-brand mb-0 h1" routerLink="/">Home</a>
+            <a class="nav-brand mb-0 h1" routerLink="/product">Product</a>
+            <a class="nav-brand mb-0 h1" routerLink="/price">Price</a>
+            <a class="nav-brand mb-0 h1" routerLink="" (click)=logout()>Logout</a>
+            <a class="nav-brand mb-0 h1" routerLink="/users">Users</a>
+        </nav>
+    </div>
+    <div *ngIf = "!authenticationService.isUserLoggedIn()">
+        <nav class="navbar navbar-light bg-light">
+            <a class="nav-brand mb-0 h1" routerLink="/sign-in">Sign-in</a>
+            <a class="nav-brand mb-0 h1" routerLink="/sign-up">Sign-up</a>
+        </nav>
+    </div>
+    
+<div clsss="container">
+    <router-outlet></router-outlet>
+</div>
