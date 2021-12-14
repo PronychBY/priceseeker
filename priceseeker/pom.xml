@@ -8,7 +8,7 @@
   	<spring.security.version>5.2.0.RELEASE</spring.security.version>
   	<hibernate.version>5.4.5.Final</hibernate.version>
 	<tomcat.version>7.0.76</tomcat.version>
-	<log4j.version>2.7</log4j.version>
+	<log4j.version>2.16.0</log4j.version>
   </properties>
 	<dependencies>
 		<dependency>
